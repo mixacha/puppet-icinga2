@@ -11,10 +11,8 @@
  */
 
 <%- if @is_template -%>template<%- else -%>object<%- end -%> Host "<%= @object_hostname %>" {
-  <%- @templates.each do |t| -%>
-  <%- if t != @object_hostname -%>
-  import "<%= t -%>"
-  <%- end -%>
+  <%- if @template_to_import -%>
+  import "<%= @template_to_import -%>"
   <%- end -%>
   <%- if @custom_prepend && Array(@custom_prepend).size > 0 -%>
     <%- Array(@custom_prepend).each do |line| -%>

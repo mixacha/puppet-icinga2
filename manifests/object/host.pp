@@ -15,7 +15,7 @@ define icinga2::object::host (
   $ipv4_address            = $ipaddress,
   $ipv6_address            = undef,
   $is_template             = false,
-  $templates               = ['generic-host'],
+  $template_to_import      = 'generic-host',
   $groups                  = [],
   $vars                    = {},
   $check_command           = undef,
@@ -53,7 +53,7 @@ define icinga2::object::host (
 
   validate_string($object_hostname)
   validate_bool($is_template)
-  validate_array($templates)
+  validate_string($template_to_import)
   validate_string($display_name)
   validate_string($ipv4_address)
   validate_array($groups)

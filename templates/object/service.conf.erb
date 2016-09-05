@@ -11,10 +11,8 @@
  */
 
 <%- if @is_template -%>template<%- else -%>object<%- end -%> Service "<%= @object_servicename %>" {
-  <%- @templates.each do |t| -%>
-  <%- if t != @object_servicename -%>
-  import "<%= t -%>"
-  <%- end -%>
+  <%- if @template_to_import -%>
+  import "<%= @template_to_import -%>"
   <%- end -%>
   <%- if @display_name -%>
   display_name = "<%= @display_name -%>"
